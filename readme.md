@@ -75,13 +75,15 @@ And convert it to :
 
 ## Task 2 - Data stack improvements
 
-This is the typical use-case of a scheduler, Airflow for example, an open source scheduler that can be run within instances like [_composer_](https://cloud.google.com/composer?hl=fr) , [MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html) , or third party providers like [Astronomer](https://www.astronomer.io/) (recommended for small teams)
+- This is the typical use-case of a scheduler, Airflow for example, an open source scheduler that can be run within instances like [_composer_](https://cloud.google.com/composer?hl=fr) , [MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html) , or third party providers like [Astronomer](https://www.astronomer.io/) (recommended for small teams)
 Can schedule executions of scripts ( like the one we have ) : calls from APIs, or queries and uses ( It's an orchestrator, it's not supposed to do the actual job) Operators to reach to the relevant service that will do the job. ( We can allow small python scripts to be executed at run-time within airflow), but for big data throughput transformations we need to privilege a transformation cluster/instance in a processing server that we will "schedule" to run on our data.
-
+---
+- Ideally, in modern data engineering architectures we tend to avoid the E~~T~~L, where we become quickly dependent on transformation clusters, ELT is much more flexible, as tools like dbt on Redshift, BigQuery allow scalable processing as well using SQL.
+---
 - Improvements for current script : 
-  - The entire structure of the repo should fit into an Airflow architecture instance.
+  - The  ``/dag``, and ``/plugins`` structure of the repo should fit into an Airflow instance.
   - In the ``/dag`` file, we can find a dag containing tasks to orchestrate.
   - In our case ( needs testing ), a production implementation of this would mean 
     - Using an Operator like `RedshiftSQLOperator` to access data in Redshift
-    - Use Jinja templating to pass rates that we get from previous script within query 
+    - Use Jinja ( supported by airflow ) [templating](https://towardsdatascience.com/advanced-sql-templates-in-python-with-jinjasql-b996eadd761d) to pass rates that we get from previous script within query. rates will be evaluated at runtime and should be up to date.
   - ![alt text](https://github.com/zakariahajji/rates_api/blob/master/images/img.png)
