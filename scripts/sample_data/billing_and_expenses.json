@@ -1,0 +1,11 @@
+[
+    {"base": "EUR", "amount": 100},
+    {"base": "USD", "amount": 250},
+    {"base": "CZK", "amount": "140,2"},
+    {"base": "USD", "amount": 131},
+    {"base": "CZK", "amount": 300},
+    {"base": "EUR", "amount": 500},
+    {"base": "USD", "amount": 800},
+    {"base": "CZK", "amount": 600},
+    {"base": "EUR", "amount": "20,6"}
+]
