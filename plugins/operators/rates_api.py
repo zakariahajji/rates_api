@@ -1,4 +1,5 @@
 import logging
+
 import requests
 
 TARGET_CURR = "EUR,USD,CZK"
