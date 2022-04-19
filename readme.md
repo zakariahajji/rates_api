@@ -84,4 +84,4 @@ Can schedule executions of scripts ( like the one we have ) : calls from APIs, o
   - In our case ( needs testing ), a production implementation of this would mean 
     - Using an Operator like `RedshiftSQLOperator` to access data in Redshift
     - Use Jinja templating to pass rates that we get from previous script within query 
-  - ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+  - ![alt text](https://github.com/zakariahajji/rates_api/blob/master/images/img.png)
