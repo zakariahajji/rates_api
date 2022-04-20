@@ -35,6 +35,8 @@ To reproduce this :
 
 2. In your terminal execute the following : 
 
+(we only need `requests`:  `pip install requests`)
+
 - ``export PYTHONPATH="${PWD}:${PYTHONPATH}:${PWD}/scripts:${PWD}/plugins"``
 
 - ``python scripts/main.py ``
